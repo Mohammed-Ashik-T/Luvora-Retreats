@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Seasonal Trips – Lovely Travels</title>
+
+  <!-- point to CSS file -->
+  <link rel="stylesheet" href="css/seasonal.css" />
+</head>
+<body>
+  <!-- particle layer -->
+  <div id="particles" aria-hidden="true"></div>
+
+  <!-- dim/background overlay (keeps background visible but readable) -->
+  <div class="overlay"></div>
+
+  <!-- header -->
+  <header class="hero">
+    <h1 class="page-title">Seasonal Trips 🌍</h1>
+    <p class="page-subtitle">
+      Embrace every season — from golden summers to snowy winters. Let nature guide your next adventure.
+    </p>
+  </header>
+
+  <!-- cylinder-like vertical scroll container -->
+  <main class="cylinder-scroll" id="cylinder">
+    <section class="season-card summer" data-season="summer">
+      <div class="card-inner">
+        <h2>Summer Getaways ☀️</h2>
+        <p>Golden beaches, azure waves and long, lazy sunsets — perfect for sun-kissed memories.</p>
+        <a class="explore" href="./summer.html">Explore Summer</a>
+      </div>
+    </section>
+
+    <section class="season-card monsoon" data-season="monsoon">
+      <div class="card-inner">
+        <h2>Monsoon Magic 🌧️</h2>
+        <p>Rain-kissed forests, emerald valleys and the fresh scent of earth — rejuvenate your soul.</p>
+        <a class="explore" href="./monsoon.html">Explore Monsoon</a>
+      </div>
+    </section>
+
+    <section class="season-card autumn" data-season="autumn">
+      <div class="card-inner">
+        <h2>Autumn Adventure 🍂</h2>
+        <p>Crimson leaves and crisp trails — chase golden light across scenic landscapes.</p>
+        <a class="explore" href="./autumn.html">Explore Autumn</a>
+      </div>
+    </section>
+
+    <section class="season-card winter" data-season="winter">
+      <div class="card-inner">
+        <h2>Winter Escapes ❄️</h2>
+        <p>Snowy peaks, cozy fires and alpine villages — serenity wrapped in white blankets.</p>
+        <a class="explore" href="./winter.html">Explore Winter</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- back button -->
+  <button class="back-btn" onclick="window.location.href='./plans.html'">⬅ Back to Plans</button>
+
+  <!-- JS -->
+  <script src="seasonal.js"></script>
+</body>
+</html>

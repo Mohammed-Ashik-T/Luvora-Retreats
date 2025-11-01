@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destination-Based Trips</title>
+  <link rel="stylesheet" href="css/destination.css">
+</head>
+<body>
+  <button class="back-button" onclick="window.location.href='./plans.html'">← Back to Plans</button>
+
+  <div class="destination-container">
+    <h1 class="page-title">Destination-Based Trips</h1>
+    <p class="page-subtitle">
+      Choose your next adventure — from <span>tropical beaches</span> to <span>serene countryside escapes</span>, explore destinations that match your mood and vibe.
+    </p>
+
+    <div class="destination-grid">
+      <div class="destination-card beach">
+        <h3>🏖️ Beach Holidays</h3>
+        <p>Feel the sand beneath your feet and the calm of the ocean breeze.</p>
+      </div>
+
+      <div class="destination-card hill">
+        <h3>🏞️ Hill Station Retreats</h3>
+        <p>Unwind in misty hills surrounded by clouds and peace.</p>
+      </div>
+
+      <div class="destination-card desert">
+        <h3>🏜️ Desert Safari</h3>
+        <p>Ride through golden dunes and watch the desert stars come alive.</p>
+      </div>
+
+      <div class="destination-card island">
+        <h3>🏝️ Island Escape</h3>
+        <p>Find paradise on secluded islands with turquoise waters.</p>
+      </div>
+
+      <div class="destination-card city">
+        <h3>🌆 City Breaks</h3>
+        <p>Dive into bustling streets filled with art, culture, and cuisine.</p>
+      </div>
+
+      <div class="destination-card countryside">
+        <h3>🌾 Countryside / Village Experience</h3>
+        <p>Experience the warmth of village life and nature’s simplicity.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Scroll-triggered animation
+    const cards = document.querySelectorAll('.destination-card');
+
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+
+      cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if (cardTop < triggerBottom) {
+          card.classList.add('show');
+        } else {
+          card.classList.remove('show');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+  </script>
+</body>
+</html>
