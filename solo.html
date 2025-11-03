@@ -1,88 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Solo Trips - Lovely Travels</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Solo Trips - Lovera Retreats</title>
   <link rel="stylesheet" href="css/solo.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="solo-overlay"></div>
+  <!-- glossy background overlay -->
+  <div class="page-bg"
+       style="background: url('https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1920&q=80')
+       center/cover no-repeat fixed;">
+  </div>
 
-  <header>
-    <h1 class="title">Solo Trips Await ✈️</h1>
-    <a href="plans.html" class="back-btn">← Back to Plans</a>
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="header-left">
+      <img src="images/logo.png" alt="Lovera Logo" class="site-logo">
+    </div>
+
+    <div class="header-center">
+      <h1 class="site-title">Solo Escapes</h1>
+      <p class="site-sub">Travel alone, feel alive.</p>
+    </div>
+
+    <div class="header-right">
+      <a class="back-btn" href="plans.html" aria-label="Back to plans">← Plans</a>
+    </div>
   </header>
 
-  <section class="trip-section">
-    <div class="trip-card">
-      <div class="trip-inner">
-        <div class="trip-front" style="background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80');">
+  <!-- TRIP CARDS -->
+  <main class="container">
+    <section class="trip-grid" aria-label="Solo trip categories">
+      <article class="trip-card" data-trip="adventure"
+        style="--thumb:url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=900&q=80')">
+        <div class="card-gloss"></div>
+        <div class="card-content">
           <h2>Adventure Solo</h2>
+          <p>Find thrill beyond comfort zones.</p>
+          <button class="btn view-btn" type="button">See More</button>
         </div>
-        <div class="trip-back">
-          <h3>Adventure Solo</h3>
-          <p>Conquer the mountains, cross rivers, and breathe freedom.
-          A journey where courage meets calm skies.</p>
-        </div>
-      </div>
-    </div>
+      </article>
 
-    <div class="trip-card">
-      <div class="trip-inner">
-        <div class="trip-front" style="background-image: url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=900&q=80');">
-          <h2>Wellness / Meditation Retreat</h2>
+      <article class="trip-card" data-trip="wellness"
+        style="--thumb:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80')">
+        <div class="card-gloss"></div>
+        <div class="card-content">
+          <h2>Wellness Retreat</h2>
+          <p>Breathe, heal and reconnect.</p>
+          <button class="btn view-btn" type="button">See More</button>
         </div>
-        <div class="trip-back">
-          <h3>Wellness Retreat</h3>
-          <p>Find peace in silence.
-          Reconnect your soul with nature’s rhythm among golden sunsets and calm waves.</p>
-        </div>
-      </div>
-    </div>
+      </article>
 
-    <div class="trip-card">
-      <div class="trip-inner">
-        <div class="trip-front" style="background-image: url('https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=900&q=80');">
-          <h2>Backpacking / Budget Solo</h2>
+      <article class="trip-card" data-trip="backpack"
+        style="--thumb:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80')">
+        <div class="card-gloss"></div>
+        <div class="card-content">
+          <h2>Backpacking</h2>
+          <p>Wander light, explore deep.</p>
+          <button class="btn view-btn" type="button">See More</button>
         </div>
-        <div class="trip-back">
-          <h3>Backpacking Journey</h3>
-          <p>Wander through local streets, share smiles, and collect stories
-          richer than any souvenir.</p>
-        </div>
-      </div>
-    </div>
+      </article>
 
-    <div class="trip-card">
-      <div class="trip-inner">
-        <div class="trip-front" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80');">
-          <h2>Digital Nomad Experience</h2>
+      <article class="trip-card" data-trip="nomad"
+        style="--thumb:url('https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=900&q=80')">
+        <div class="card-gloss"></div>
+        <div class="card-content">
+          <h2>Digital Nomad</h2>
+          <p>Work anywhere. Live everywhere.</p>
+          <button class="btn view-btn" type="button">See More</button>
         </div>
-        <div class="trip-back">
-          <h3>Digital Nomad</h3>
-          <p>Work where your heart feels alive — seaside mornings, mountain evenings,
-          endless inspiration everywhere.</p>
-        </div>
-      </div>
-    </div>
+      </article>
+    </section>
+  </main>
 
-    <div class="trip-card">
-      <div class="trip-inner">
-        <div class="trip-front" style="background-image: url('https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?auto=format&fit=crop&w=900&q=80');">
-          <h2>Self-Discovery Journey</h2>
-        </div>
-        <div class="trip-back">
-          <h3>Self-Discovery</h3>
-          <p>Find your rhythm among stars and solitude.
-          Every sunrise is a whisper — “You’re exactly where you’re meant to be.”</p>
-        </div>
+  <!-- SCREEN / HERO SECTION -->
+  <section class="screen">
+    <div class="screen-overlay"></div>
+    <div class="screen-content">
+      <h1 class="screen-title">Find Your Next Soul Journey 🌍</h1>
+      <p class="screen-subtitle">
+        Discover destinations that heal your mind, thrill your heart, and awaken your spirit.
+      </p>
+      <div class="screen-actions">
+        <button class="explore-btn">Start Exploring</button>
+        <button class="watch-btn">Watch Experiences</button>
       </div>
     </div>
   </section>
 
-  <footer>
-    <p>✨ Discover yourself, one trip at a time ✨</p>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>© 2025 Lovera Retreats | Designed with ❤️ for explorers</p>
+      <div class="social-links">
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+        <a href="#">Facebook</a>
+      </div>
+    </div>
   </footer>
+
+  <!-- CINEMATIC MODAL / SCREEN -->
+  <div class="screen-modal" id="screen-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-bg" id="modal-bg" role="presentation"></div>
+    <div class="modal-rays" aria-hidden="true"></div>
+    <div class="modal-particles" aria-hidden="true"></div>
+
+    <div class="modal-panel" role="document">
+      <button class="modal-back" id="modal-back" aria-label="Close details">← Back</button>
+      <h2 id="modal-title">Title</h2>
+      <div id="modal-body" class="modal-body"></div>
+      <div class="modal-footer">
+        <p>✨ Every journey begins with a single brave step ✨</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/solo.js"></script>
 </body>
 </html>
