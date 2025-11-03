@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience-Based Trips</title>
+  <link rel="stylesheet" href="css/experience.css">
+</head>
+<body>
+  <button class="back-button" onclick="window.location.href='plans.html'">← Back to Plans</button>
+
+  <div class="experience-container">
+    <h1 class="page-title">Experience-Based Trips</h1>
+    <p class="page-subtitle">
+      Dive into journeys crafted for your soul — from opulent luxury escapes to adventures that make a difference.
+      Choose the <span>experience</span> that defines your story.
+    </p>
+
+    <div class="experience-grid">
+      <div class="experience-card luxury">
+        <h3>💎 Luxury Travel</h3>
+        <p>Indulge in 5-star elegance, private villas, and personalized adventures.</p>
+      </div>
+
+      <div class="experience-card budget">
+        <h3>🎒 Budget / Backpacking</h3>
+        <p>Travel light, live free, and explore the world on your terms.</p>
+      </div>
+
+      <div class="experience-card roadtrip">
+        <h3>🚗 Road Trip</h3>
+        <p>Chase horizons on scenic highways — every turn is a new memory.</p>
+      </div>
+
+      <div class="experience-card cruise">
+        <h3>🚢 Cruise Trip</h3>
+        <p>Sail across oceans and wake up in a new paradise each day.</p>
+      </div>
+
+      <div class="experience-card eco">
+        <h3>🌿 Eco / Sustainable Travel</h3>
+        <p>Reconnect with nature through mindful, responsible travel.</p>
+      </div>
+
+      <div class="experience-card volunteer">
+        <h3>🤝 Volunteering / NGO Travel</h3>
+        <p>Travel with purpose — make a positive impact wherever you go.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const cards = document.querySelectorAll('.experience-card');
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if (cardTop < triggerBottom) card.classList.add('show');
+        else card.classList.remove('show');
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+  </script>
+</body>
+</html>

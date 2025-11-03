@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: white;
+  overflow-x: hidden;
+}
+
+#season-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 2s ease-in-out;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: -1;
+}
+
+header {
+  text-align: center;
+  margin-top: 80px;
+  animation: fadeInDown 1s ease forwards;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 8px #000;
+}
+
+.page-subtitle {
+  font-size: 1.1rem;
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+.seasons-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 60px auto;
+  max-width: 1100px;
+}
+
+.season-card {
+  width: 240px;
+  height: 260px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 20px;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  overflow: hidden;
+}
+
+.season-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.4);
+}
+
+.season-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 20px;
+}
+
+.season-card h2, .season-card p {
+  position: relative;
+  z-index: 1;
+}
+
+/* Individual backgrounds */
+.summer {
+  background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+}
+
+.monsoon {
+  background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d');
+}
+
+.winter {
+  background-image: url('https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef');
+}
+
+.spring {
+  background-image: url('https://images.unsplash.com/photo-1552083375-1447ce886485');
+}
+
+footer {
+  text-align: center;
+  padding: 30px 0;
+  font-size: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  margin-top: 50px;
+}
+
+@keyframes fadeInDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
