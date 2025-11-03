@@ -23,14 +23,11 @@ const tripDetails = {
 
 const modal = document.getElementById('screen-modal');
 const modalBg = document.getElementById('modal-bg');
-const modalRays = document.querySelector('.modal-rays');
-const modalParticles = document.querySelector('.modal-particles');
-const panel = document.querySelector('.modal-panel');
 const titleEl = document.getElementById('modal-title');
 const bodyEl = document.getElementById('modal-body');
 const backBtn = document.getElementById('modal-back');
-
 const openButtons = document.querySelectorAll('.view-btn');
+
 openButtons.forEach(btn => {
   btn.addEventListener('click', (e) => {
     const card = e.target.closest('.trip-card');
@@ -39,38 +36,52 @@ openButtons.forEach(btn => {
     const info = tripDetails[key];
     if (!info) return;
 
-    // Apply modal content
-    titleEl.textContent = info.title;
-    bodyEl.textContent = info.body;
-    modalBg.style.backgroundImage = `url('${info.bg}')`;
+    // Preload background first
+    const bgImage = new Image();
+    bgImage.src = info.bg;
 
-    // Ambient body glow color change
-    document.body.style.setProperty('--accent',
-      key === "wellness" ? "#66e3ff" :
-      key === "adventure" ? "#74ff8f" :
-      key === "nomad" ? "#ffd76b" : "#ff7edb");
-
-    // Show modal
-    modal.classList.add('active');
+    // Hide modal until image loads
+    modal.classList.remove('active');
     modalBg.style.opacity = 0;
-    setTimeout(() => {
-      modalBg.style.transition = "opacity .9s ease, transform .9s ease";
-      modalBg.style.opacity = 1;
-      modalBg.style.transform = "scale(1)";
-    }, 50);
+    modalBg.style.transition = "none";
 
-    document.documentElement.style.overflow = 'hidden';
-    document.body.style.overflow = 'hidden';
+    // When image finishes loading
+    bgImage.onload = () => {
+      // Update modal content
+      titleEl.textContent = info.title;
+      bodyEl.textContent = info.body;
+      modalBg.style.backgroundImage = `url('${info.bg}')`;
+
+      // Ambient glow color
+      document.body.style.setProperty('--accent',
+        key === "wellness" ? "#66e3ff" :
+        key === "adventure" ? "#74ff8f" :
+        key === "nomad" ? "#ffd76b" :
+        key === "backpack" ? "#ffb84d" : "#ff7edb"
+      );
+
+      // Then show modal together
+      modal.classList.add('active');
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+
+      requestAnimationFrame(() => {
+        modalBg.style.transition = "opacity 1s ease, transform 1.2s ease";
+        modalBg.style.opacity = 1;
+        modalBg.style.transform = "scale(1)";
+      });
+    };
   });
 });
 
-function closeModal(){
+function closeModal() {
   modal.classList.remove('active');
   modalBg.style.opacity = 0;
   modalBg.style.transform = "scale(1.02)";
   document.documentElement.style.overflow = '';
   document.body.style.overflow = '';
 }
-document.getElementById('modal-back').addEventListener('click', closeModal);
+
+backBtn.addEventListener('click', closeModal);
 modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
