@@ -1,211 +1,128 @@
-/* seasonal.css
-   Place this file at css/seasonal.css (path used in HTML above)
-*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600&display=swap');
-
-:root{
-  --bg-transition: 1000ms ease;
-  --card-width: min(880px, 86vw);
-  --card-height: 56vh;
-}
-
-/* Page base */
-* { box-sizing: border-box; }
-html,body { height: 100%; }
-body {
+* {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
-  color: #111;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  background: linear-gradient(180deg,#fff8ef,#ffe9d6 60%, #f6f8ff);
-  transition: background var(--bg-transition);
-  overflow: hidden; /* page uses the cylinder scroll area for scroll */
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* particles layer */
-#particles { position: fixed; inset: 0; pointer-events: none; z-index: 5; }
+body {
+  font-family: "Poppins", sans-serif;
+  color: white;
+  overflow-x: hidden;
+}
 
-/* gentle overlay to give contrast (content above it) */
+#season-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 2s ease-in-out;
+}
+
 .overlay {
   position: fixed;
   inset: 0;
-  background: linear-gradient(180deg, rgba(12,12,20,0.06), rgba(12,12,20,0.05));
-  z-index: 1;
-  pointer-events: none;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: -1;
 }
 
-/* header (title + subtitle) — must be visible above overlay */
-.hero {
-  position: relative;
-  z-index: 10;
+header {
   text-align: center;
-  padding: 36px 20px 8px;
-  margin-bottom: 8px;
+  margin-top: 80px;
+  animation: fadeInDown 1s ease forwards;
 }
 
 .page-title {
-  margin: 12px 0 6px;
-  font-family: 'Playfair Display', serif;
-  font-weight:700;
-  font-size: clamp(28px, 4vw, 44px);
-  background: linear-gradient(90deg,#ff9966,#ff6b6b);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  text-shadow: 0 6px 22px rgba(0,0,0,0.08);
-  letter-spacing: 0.6px;
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 8px #000;
 }
 
 .page-subtitle {
-  margin: 0 auto;
-  max-width: 920px;
-  color: rgba(20,20,28,0.85);
-  font-size: clamp(14px,1.45vw,18px);
-  line-height: 1.7;
-  font-weight: 400;
-  opacity: 0.95;
-  text-shadow: 0 3px 10px rgba(255,255,255,0.6);
+  font-size: 1.1rem;
+  margin-top: 10px;
+  opacity: 0.9;
 }
 
-/* Cylinder scroll container
-   - uses vertical scroll inside main area
-   - we will enable keyboard/trackpad scrolling only inside this region
-*/
-.cylinder-scroll {
-  position: relative;
-  z-index: 10;
-  width: 100%;
-  height: calc(100vh - 170px); /* leave space for header and little margin */
-  margin: 20px auto 40px;
+.seasons-container {
   display: flex;
-  align-items: center;
   justify-content: center;
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding: 30px 0;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 60px auto;
+  max-width: 1100px;
 }
 
-/* season card base style */
 .season-card {
-  --w: var(--card-width);
-  width: var(--w);
-  height: var(--card-height);
-  border-radius: 18px;
-  margin: 28px 0;
-  padding: 28px 32px;
-  box-shadow: 0 30px 70px rgba(16,24,40,0.12);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  scroll-snap-align: center;
-  transform-origin: center center;
-  transition: transform 600ms cubic-bezier(.2,.9,.2,1), box-shadow 400ms;
+  width: 240px;
+  height: 260px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 20px;
   color: white;
+  background-size: cover;
+  background-position: center;
   position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.06);
 }
 
-/* inner glass layer for better legibility */
-.season-card::after{
+.season-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.4);
+}
+
+.season-card::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.22), rgba(0,0,0,0.08));
-  z-index: 0;
-  pointer-events: none;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 20px;
 }
 
-/* card content sits above overlay */
-.card-inner{ position: relative; z-index: 2; }
-
-/* Title + text */
-.season-card h2 {
-  margin: 0 0 8px;
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  font-size: clamp(20px,2.2vw,28px);
-  color: #fff6df;
+.season-card h2, .season-card p {
+  position: relative;
+  z-index: 1;
 }
 
-.season-card p {
-  margin: 0 0 18px;
-  font-size: clamp(13px,1.2vw,16px);
-  color: rgba(255,255,255,0.92);
-  line-height: 1.6;
+/* Individual backgrounds */
+.summer {
+  background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
 }
 
-/* CTA styled as link button */
-.explore {
-  display:inline-block;
-  text-decoration:none;
-  padding: 10px 20px;
-  background: linear-gradient(90deg,#ff7b53,#ff3b8a);
-  color: white;
-  border-radius: 999px;
-  font-weight:600;
-  box-shadow: 0 6px 20px rgba(255,91,109,0.22);
+.monsoon {
+  background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d');
 }
 
-/* hover effect on card */
-.season-card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 40px 90px rgba(16,24,40,0.18);
+.winter {
+  background-image: url('https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef');
 }
 
-/* give each season distinct background imagery / gradient */
-.season-card.summer{
-  background-image:
-    linear-gradient(0deg, rgba(255,122,77,0.85), rgba(255,91,109,0.55)),
-    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80');
-  background-size:cover;
-  background-position:center;
-}
-.season-card.monsoon{
-  background-image:
-    linear-gradient(0deg, rgba(0,140,255,0.82), rgba(0,102,204,0.45)),
-    url('https://images.unsplash.com/photo-1564769662510-6b3f69a9d9e1?auto=format&fit=crop&w=1600&q=80');
-  background-size:cover;
-  background-position:center;
-}
-.season-card.autumn{
-  background-image:
-    linear-gradient(0deg, rgba(255,140,80,0.85), rgba(199,88,48,0.45)),
-    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80');
-  background-size:cover;
-  background-position:center;
-}
-.season-card.winter{
-  background-image:
-    linear-gradient(0deg, rgba(120,170,255,0.88), rgba(180,210,255,0.45)),
-    url('https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=1600&q=80');
-  background-size:cover;
-  background-position:center;
+.spring {
+  background-image: url('https://images.unsplash.com/photo-1552083375-1447ce886485');
 }
 
-/* small responsive tweaks */
-@media (max-width: 920px){
-  :root{ --card-width: 92vw; --card-height: 52vh; }
-  .cylinder-scroll { height: calc(100vh - 200px); padding: 18px 0; }
-  .hero { padding-top: 18px; }
+footer {
+  text-align: center;
+  padding: 30px 0;
+  font-size: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  margin-top: 50px;
 }
 
-/* keyboard focus styles for accessibility */
-.explore:focus, .back-btn:focus { outline: 3px solid rgba(255,120,120,0.35); outline-offset: 3px; }
-
-/* back button */
-.back-btn {
-  position: fixed;
-  bottom: 26px;
-  left: 22px;
-  z-index: 20;
-  border: none;
-  background: #1f2937;
-  color: white;
-  padding: 10px 18px;
-  border-radius: 999px;
-  cursor:pointer;
-  box-shadow: 0 10px 30px rgba(16,24,40,0.18);
+@keyframes fadeInDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
