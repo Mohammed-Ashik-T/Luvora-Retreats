@@ -66,7 +66,7 @@ openButtons.forEach(btn => {
       document.body.style.overflow = 'hidden';
 
       requestAnimationFrame(() => {
-        modalBg.style.transition = "opacity 1s ease, transform 1.2s ease";
+        modalBg.style.transition = "opacity 0.9s ease, transform 1s ease";
         modalBg.style.opacity = 1;
         modalBg.style.transform = "scale(1)";
       });

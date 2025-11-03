@@ -275,3 +275,132 @@ body::before{
   .modal-panel{ padding:20px }
   #modal-title{ font-size:1.3rem }
 }
+
+/* 🔧 Mobile & Small Screen Optimization */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+    overflow-x: hidden;
+  }
+
+  .main-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 14px;
+  }
+
+  .site-logo {
+    height: 36px;
+    margin-bottom: 8px;
+  }
+
+  .site-title {
+    font-size: 1.3rem;
+  }
+
+  .site-sub {
+    font-size: 0.85rem;
+  }
+
+  .container {
+    padding: 20px 16px 70px;
+  }
+
+  .trip-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .trip-card {
+    height: 280px;
+    border-radius: 16px;
+  }
+
+  .card-content {
+    padding: 16px;
+  }
+
+  .card-content h2 {
+    font-size: 1.1rem;
+  }
+
+  .card-content p {
+    font-size: 0.9rem;
+  }
+
+  .view-btn {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .screen {
+    padding: 80px 15px;
+  }
+
+  .screen-title {
+    font-size: 2rem;
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+  }
+
+  .screen-subtitle {
+    font-size: 1rem;
+  }
+
+  .screen-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .explore-btn, .watch-btn {
+    width: 85%;
+    padding: 10px 0;
+    font-size: 1rem;
+  }
+
+  .modal-panel {
+    width: 95%;
+    padding: 20px 16px;
+  }
+
+  #modal-title {
+    font-size: 1.3rem;
+  }
+
+  .modal-body {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .modal-back {
+    font-size: 0.85rem;
+    top: 10px;
+    left: 10px;
+  }
+
+  .footer {
+    padding: 30px 10px;
+    font-size: 0.9rem;
+    background: rgba(0,0,0,0.6);
+    text-shadow: 0 0 6px rgba(255,255,255,0.15);
+  }
+
+  .social-links a {
+    font-size: 1rem;
+  }
+}
+
+/* 💎 Make footer visible on glossy backgrounds */
+.footer {
+  background: linear-gradient(180deg, rgba(10,10,20,0.85), rgba(0,0,0,0.6));
+  border-top: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 -10px 40px rgba(0,0,0,0.6);
+  color: #f0f4f9;
+}
+
+/* ✨ Improve modal text readability on bright images */
+.modal-panel {
+  background: linear-gradient(180deg, rgba(15,15,20,0.8), rgba(10,10,20,0.6));
+  color: #f9f9f9;
+}
